@@ -1,0 +1,16 @@
+[package]
+name = "bsc-vanity"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+k256 = { version = "0.13", default-features = false, features = ["alloc", "arithmetic"] }
+opencl3 = { version = "0.12.4", default-features = false, features = ["dynamic"] }
+rand_core = { version = "0.6", features = ["getrandom"] }
+sha3 = { version = "0.10", default-features = false }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
